@@ -22,7 +22,7 @@ has_many :buys
 
 |Column         |Type        |Options                         |
 | ------------- | ---------- | ------------------------------ |
-| product       | string     | null: false                    |
+| name          | string     | null: false                    |
 | explanation   | text       | null: false                    |
 | category_id   | integer    | null: false                    |
 | status_id     | integer    | null: false                    |
@@ -47,7 +47,7 @@ has_one :buy
 ### Association
 belongs_to :user
 belongs_to :item
-has_many :addresses
+has_one :address
 
 
 ## Address
