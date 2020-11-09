@@ -20,17 +20,17 @@ has_many :buys
 
 ## Items
 
-|Column       |Type        |Options                         |
-| ----------- | ---------- | ------------------------------ |
-| product     | string     | null: false                    |
-| explanation | text       | null: false                    |
-| category    | integer    | null: false                    |
-| status      | integer    | null: false                    |
-| burden      | integer    | null: false                    |
-| prefectures | integer    | null: false                    |
-| days        | integer    | null: false                    |
-| price       | integer    | null: false                    |
-| user        | references | null: false, foreign_key: true |
+|Column         |Type        |Options                         |
+| ------------- | ---------- | ------------------------------ |
+| product       | string     | null: false                    |
+| explanation   | text       | null: false                    |
+| category_id   | integer    | null: false                    |
+| status_id     | integer    | null: false                    |
+| burden_id     | integer    | null: false                    |
+| prefecture_id | integer    | null: false                    |
+| day_id        | integer    | null: false                    |
+| price         | integer    | null: false                    |
+| user          | references | null: false, foreign_key: true |
 
 ### Association
 belongs_to :user
@@ -42,25 +42,25 @@ has_one :buy
 |Column   |Type        |Options                         |
 | ------- | ---------- | ------------------------------ |
 | user    | references | null: false, foreign_key: true |
-| items   | references | null: false, foreign_key: true |
+| item    | references | null: false, foreign_key: true |
 
 ### Association
 belongs_to :user
 belongs_to :item
-has_many :address
+has_many :addresses
 
 
 ## Address
 
-|Column       |Type        |Options                         |
-|------------ | -----------| ------------------------------ |
-| post_num    | string     | null: false                    |
-| prefectures | string     | null: false                    |
-| city        | string     | null: false                    |
-| building    | string     |                                |
-| house_num   | string     | null: false                    |
-| phone       | string     | null: false                    |
-| buy         | references | null: false, foreign_key: true |
+|Column         |Type        |Options                         |
+|-------------- | -----------| ------------------------------ |
+| post_num      | string     | null: false                    |
+| prefecture_id | integer    | null: false                    |
+| city          | string     | null: false                    |
+| building      | string     |                                |
+| house_num     | string     | null: false                    |
+| phone         | string     | null: false                    |
+| buy           | references | null: false, foreign_key: true |
 
 ### Association
 belongs_to :buy
