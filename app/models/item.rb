@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
-  validates :name, presence: true, length: {maximum: 6 }
+  validates :name, presence: true, length: {maximum: 40 }
   validates :explanation, presence: true, length: {maximum: 100 }
 
   with_options numericality: { other_than: 1 } do
