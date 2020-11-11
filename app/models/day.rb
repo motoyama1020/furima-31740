@@ -10,6 +10,3 @@ class Day < ActiveHash::Base
   has_many :items
   
 end
-
-class Day < ApplicationRecord
-end

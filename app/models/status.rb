@@ -13,6 +13,3 @@ class Status < ActiveHash::Base
   has_many :items
   
 end
-
-class Status < ApplicationRecord
-end

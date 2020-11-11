@@ -17,6 +17,3 @@ class Category < ActiveHash::Base
   has_many :items
   
 end
-
-class Category < ApplicationRecord
-end

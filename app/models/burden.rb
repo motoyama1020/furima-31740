@@ -9,6 +9,3 @@ class Burden < ActiveHash::Base
   has_many :items
   
 end
-
-class Burden < ApplicationRecord
-end
