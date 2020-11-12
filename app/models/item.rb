@@ -1,4 +1,5 @@
 class Item < ApplicationRecord
+  validates :image, presence: true
   validates :name, presence: true, length: {maximum: 40 }
   validates :explanation, presence: true, length: {maximum: 1000 }
 
@@ -17,9 +18,9 @@ class Item < ApplicationRecord
   has_one_attached :image
 
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :burden
-  belongs_to :category
-  belongs_to :day
-  belongs_to :prefecture
-  belongs_to :status
+  belongs_to_active_hash :burden
+  belongs_to_active_hash :category
+  belongs_to_active_hash :day
+  belongs_to_active_hash :prefecture
+  belongs_to_active_hash :status
 end
