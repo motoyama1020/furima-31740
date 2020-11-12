@@ -25,7 +25,7 @@ describe Item do
       it 'nameが40文字より多いと登録できない' do
         @item.name = Faker::Internet.password(min_length: 41)
         @item.valid?
-        expect(@item.errors.full_messages).to include("Name is too long (maximum is 40 characters)")
+        expect(@item.errors.full_messages).to include('Name is too long (maximum is 40 characters)')
       end
       it 'explanationが空だと登録できない' do
         @item.explanation = nil
@@ -35,12 +35,12 @@ describe Item do
       it 'explanationが1000文字より多いと登録できない' do
         @item.explanation = Faker::Internet.password(min_length: 1001)
         @item.valid?
-        expect(@item.errors.full_messages).to include("Explanation is too long (maximum is 1000 characters)")
+        expect(@item.errors.full_messages).to include('Explanation is too long (maximum is 1000 characters)')
       end
       it 'category_idが1だと登録できない' do
         @item.category_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Category must be other than 1")
+        expect(@item.errors.full_messages).to include('Category must be other than 1')
       end
       it 'burden_idが1だと登録できない' do
         @item.burden_id = 1
@@ -60,7 +60,7 @@ describe Item do
       it 'day_idが1だと登録できない' do
         @item.day_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Day must be other than 1")
+        expect(@item.errors.full_messages).to include('Day must be other than 1')
       end
       it 'priceが空だと登録できない' do
         @item.price = nil
@@ -73,12 +73,12 @@ describe Item do
         expect(@item.errors.full_messages).to include('Price must be greater than or equal to 300')
       end
       it 'priceが9999999より高いと登録できない' do
-        @item.price = 10000000
+        @item.price = 10_000_000
         @item.valid?
         expect(@item.errors.full_messages).to include('Price must be less than or equal to 9999999')
       end
       it 'priceが半角数字でないと登録できない' do
-        @item.price = "ああああ"
+        @item.price = 'ああああ'
         @item.valid?
         expect(@item.errors.full_messages).to include('Price is not a number')
       end
