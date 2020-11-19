@@ -42,7 +42,7 @@ RSpec.describe BuyAddress, type: :model do
     it 'phoneが全角数字だと保存できないこと' do
       @buy_address.phone = '２０００'
       @buy_address.valid?
-      expect(@buy_address.errors.full_messages).to include('Phone is not a number')
+      expect(@buy_address.errors.full_messages).to include('Phone is invalid')
     end
     it 'phoneが12桁以上だと保存できないこと' do
       @buy_address.phone = '2222222222'
