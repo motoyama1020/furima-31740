@@ -9,6 +9,10 @@ RSpec.describe BuyAddress, type: :model do
     it 'すべての値が正しく入力されていれば保存できること' do
       expect(@buy_address).to be_valid
     end
+    it 'buildingが空でも保存できること' do
+      @buy_address.building = nil
+      expect(@buy_address).to be_valid
+    end
     it 'post_numが空だと保存できないこと' do
       @buy_address.post_num = nil
       @buy_address.valid?
@@ -45,9 +49,9 @@ RSpec.describe BuyAddress, type: :model do
       expect(@buy_address.errors.full_messages).to include('Phone is invalid')
     end
     it 'phoneが12桁以上だと保存できないこと' do
-      @buy_address.phone = '2222222222'
+      @buy_address.phone = '222222222222'
       @buy_address.valid?
-      expect(@buy_address.errors.full_messages)
+      expect(@buy_address.errors.full_messages).to include('Phone is invalid')
     end
     it 'tokenが空では登録できないこと' do
       @buy_address.token = nil
