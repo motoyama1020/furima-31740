@@ -5,7 +5,7 @@ FactoryBot.define do
     city { '東京都' }
     house_num { '１ー１' }
     building { '東京ハイツ' }
-    phone { 2000000000 }
-    token {"tok_abcdefghijk00000000000000000"}
+    phone { 2_000_000_000 }
+    token { 'tok_abcdefghijk00000000000000000' }
   end
 end

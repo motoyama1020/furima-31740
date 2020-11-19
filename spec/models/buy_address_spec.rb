@@ -17,7 +17,7 @@ RSpec.describe BuyAddress, type: :model do
     it 'post_numが半角のハイフンを含んだ正しい形式でないと保存できないこと' do
       @buy_address.post_num = '1234567'
       @buy_address.valid?
-      expect(@buy_address.errors.full_messages).to include("Post num is invalid. Include hyphen(-)")
+      expect(@buy_address.errors.full_messages).to include('Post num is invalid. Include hyphen(-)')
     end
     it 'prefecture_idを選択していないと保存できないこと' do
       @buy_address.prefecture_id = 0
@@ -42,14 +42,14 @@ RSpec.describe BuyAddress, type: :model do
     it 'phoneが全角数字だと保存できないこと' do
       @buy_address.phone = '２０００'
       @buy_address.valid?
-      expect(@buy_address.errors.full_messages).to include("Phone is not a number")
+      expect(@buy_address.errors.full_messages).to include('Phone is not a number')
     end
     it 'phoneが12桁以上だと保存できないこと' do
       @buy_address.phone = '2222222222'
       @buy_address.valid?
       expect(@buy_address.errors.full_messages)
     end
-    it "tokenが空では登録できないこと" do
+    it 'tokenが空では登録できないこと' do
       @buy_address.token = nil
       @buy_address.valid?
       expect(@buy_address.errors.full_messages).to include("Token can't be blank")
