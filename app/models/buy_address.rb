@@ -1,6 +1,6 @@
 class BuyAddress
   include ActiveModel::Model
-  attr_accessor :post_num, :prefecture_id, :city, :house_num, :building, :phone, :token, :user_id, :item_id, :buy_id
+  attr_accessor :post_num, :prefecture_id, :city, :house_num, :building, :phone, :token, :user_id, :item_id
 
   with_options presence: true do
     validates :city, format:        { with: /\A[ぁ-んァ-ン一-龥]/, message: 'is invalid. Input full-width characters.' }
